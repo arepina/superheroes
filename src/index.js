@@ -1,47 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './routers/AppRouter';
-import getAppStore from './store/store';
-import { addHero } from './actions/heroes';
-import { filterHeroes, title, galaxy } from './actions/filters';
-import getVisibleHeroes from './selectors/heroes';
-import './styles/styles.scss';
+import './index.css';
+import SelectedHeroes from './SelectedHeroes';
+import SearchLine from './SearchLine';
+import Heroes from './Heroes';
+import GalaxyButtons from './GalaxyButtons';
 import * as serviceWorker from './serviceWorker';
 
-import { Provider } from 'react-redux';
+ReactDOM.render(<SelectedHeroes />, document.getElementById('selectedHeroes'));
+ReactDOM.render(<SearchLine />, document.getElementById('searchLine'));
+ReactDOM.render(<Heroes />, document.getElementById('heroes'));
+ReactDOM.render(<GalaxyButtons />, document.getElementById('galaxy'));
 
-const store = getAppStore();
 
-const template = (
-    <Provider store={store}>
-        <AppRouter />
-    </Provider>
-);
-
-ReactDOM.render(template, document.getElementById('app'));
-
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
-//
-// export default App;
