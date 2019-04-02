@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# superheroes
 
-## Available Scripts
+![example](/example.png)
 
-In the project directory, you can run:
+Разработать приложение `superheroes` для подбора своей команды супергероев
 
-### `npm start`
+## Тех. требования:
+- Приложение должно быть реализовано c помощью [create-react-app](https://github.com/facebook/create-react-app) и [redux](https://github.com/reduxjs/redux)
+- Приложение должно корректно отображаться в диапазоне `320 - 767` px
+- [Макеты](https://www.figma.com/file/H7YKFv5cSLadMJhA58pTywHL/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B4%D0%BB%D1%8F-%D0%A8%D0%BA%D0%BE%D0%BB%D1%8B-%D0%A4%D1%80%D0%BE%D0%BD%D1%82%D0%B5%D0%BD%D0%B4%D0%B0?node-id=0%3A1)
+- Данные для приложения лежат в файле `superheroes.json`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Приложение состоит из 4-х блоков:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+#### 1. Список выбранных супергероев
 
-### `npm test`
+- Список один для обеих вселенных комиксов
+- Список не показывается если не выбрано ни одного супергероя
+- Добавляется горизонтальный скролл, если супергерои "не влезают"
+- При наведении мыши на супергероя должен появляться крестик
+- Если выбраны несколько одинаковых супергероев - карточка супергероя должна быть одна, но со счетчиком
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 2. Поиск
 
-### `npm run build`
+- При изменении поля поиска должен происходить фильтр супергероев по имени
+- При смене вселенной комиксов поле поиска должно очищаться
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 3. Каталог супергероев
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- По клику на супергероя его карточка добавляется в список супергероев (либо изменяется счетчик, если карточка уже там есть)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 4. Переключатель вселенной комиксов
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- При запуске приложения должна показываться вселенная DC
+- При смене вселенной должно происходить изменение pathname на название вселенной (`/dc` или `/marvel`)

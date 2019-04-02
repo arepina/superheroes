@@ -26,8 +26,8 @@ class GalaxyButtons extends Component {
     return (
       <center>
         <div if="galaxy">
-          <button disabled={this.state.isDC}><img id="dc" src="dc.png" alt="dc" onClick={this.handleClick} style={style}/></button>
-          <button disabled={this.state.isMarvel}><img id="marvel" src="marvel.png" alt="marvel" onClick={this.handleClick} style={style}/></button>
+          <button disabled={this.state.isDC}><img border="0" id="dc" src="dc.png" alt="dc" onClick={this.handleClick} style={style}/></button>
+          <button disabled={this.state.isMarvel}><img border="0" id="marvel" src="marvel.png" alt="marvel" onClick={this.handleClick} style={style}/></button>
         </div>
       </center>
     );
