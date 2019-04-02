@@ -28,11 +28,8 @@ function SingleLineGridList(props) {
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={2.5} cellHeight={200}>
         {heroesList.map(hero => (
-          <GridListTile key={hero.image}>
-            <img src={hero.image} alt={hero.name} />
-            // <IconButton>
-            //   <ClearIcon className={classes.title} style={{color:"#ffffff"}}/>
-            // </IconButton>
+          <GridListTile key={hero.image} style={{maxWidth: '100px'}}>
+            <img style={{height: '100%', width: 'auto',display:'block'}} src={hero.image} alt={hero.name} />
           </GridListTile>
         ))}
       </GridList>

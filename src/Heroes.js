@@ -14,7 +14,7 @@ const styles = theme => ({
     overflow: 'hidden',
   },
   gridList: {
-    height: 450,
+    height: 350,
   }
 });
 
@@ -25,8 +25,8 @@ function TitlebarGridList(props) {
     <div className={classes.root}>
       <GridList className={classes.gridList} cols={4} cellHeight={200}>
         {heroesList.map(hero => (
-          <GridListTile key={hero.image}>
-            <img src={hero.image} alt={hero.name} />
+          <GridListTile key={hero.image} style={{maxWidth: '100px'}}>
+            <img style={{height: '100%', width: 'auto',display:'block'}} src={hero.image} alt={hero.name} />
             <GridListTileBar
               title={hero.title}
               subtitle={<span>{hero.name}</span>}
