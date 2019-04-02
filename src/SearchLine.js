@@ -9,7 +9,7 @@ class SearchLine extends Component {
     return (
       <div class="searchContainer">
          <FontAwesomeIcon icon={faSearch} style={{position: 'absolute',
-           marginLeft: '120px',
+           marginLeft: '100px',
            marginTop: '17px',
            zindex: '1',
            color: '#ffffff',
