@@ -5,6 +5,10 @@ import { faSearch } from '@fortawesome/fontawesome-free-solid'
 
 class SearchLine extends Component {
 
+  filterHeroes(){
+    console.log("Hello")
+  }
+
   render () {
     return (
       <div class="searchContainer">
@@ -15,7 +19,7 @@ class SearchLine extends Component {
            color: '#ffffff',
            top: '50%'
          }}/>
-         <input type="search" id="search" placeholder="Имя героя"/>
+         <input type="search" id="search" placeholder="Имя героя" onChange={this.filterHeroes}/>
       </div>
     );
   }

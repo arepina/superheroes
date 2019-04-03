@@ -1,45 +1,52 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import React, {Component} from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import heroesList from './heroesList';
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-  },
-  gridList: {
-    height: 350,
+class HeroesList extends Component{
+  constructor(props) {
+        super(props);
+        this.state = {heroes: []};
+        this.addHero = this.addHero.bind(this);
   }
-});
 
-function TitlebarGridList(props) {
-  const { classes } = props;
+  addHero(item){
+      this.setState({
+        heroes : [item].concat(this.state.heroes)
+      });
+      this.props.onUpdate(this.state.heroes)
+   }
 
-  return (
-    <div className={classes.root}>
-      <GridList className={classes.gridList} cols={4} cellHeight={200}>
-        {heroesList.map(hero => (
-          <GridListTile key={hero.image} style={{maxWidth: '100px'}}>
-            <img style={{height: '100%', width: 'auto',display:'block'}} src={hero.image} alt={hero.name} />
-            <GridListTileBar
-              title={hero.title}
-              subtitle={<span>{hero.name}</span>}
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
-  );
+  render(){
+    const styles = theme => ({
+      root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+      },
+      gridList: {
+        height: 350,
+      }
+    });
+    return (
+      <div className={this.props.root} style={{width:'100vw',marginLeft:'10px',marginRight:'10px',marginTop:'70px'}}>
+        <GridList className={this.props.gridList} cols={4} cellHeight={200}>
+          {heroesList.map(hero => (
+            <GridListTile key={hero.image} style={{maxWidth: '100px'}} value={hero} onClick={this.addHero.bind(this, hero)}>
+              <img style={{height: '100%', width: 'auto',display:'block'}}
+              src={hero.image} alt={hero.name} />
+              <GridListTileBar
+                title={hero.title}
+                subtitle={<span>{hero.name}</span>}
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+    );
+  }
 }
 
-TitlebarGridList.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(TitlebarGridList);
+export default HeroesList;
