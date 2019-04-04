@@ -10,14 +10,14 @@ import * as serviceWorker from './serviceWorker';
 class Main extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { heroes: [] }
+    this.state = { heroes: [], clicksNumber: []}
   }
   render () {
     return (
       <div>
         <center>
         <div style={{display: 'inline-block'}}>
-          <SelectedHeroes heroes={this.state.heroes}/>
+          <SelectedHeroes heroes={this.state.heroes} clicksNumber={this.state.clicksNumber}/>
           <SearchLine style={{width:'100vw',marginBottom:'10px'}}/>
           <Heroes onUpdate={this.onUpdate.bind(this)}/>
           <GalaxyButtons/>
@@ -26,12 +26,17 @@ class Main extends React.Component {
       </div>
     )
   }
-  onUpdate (heroes) {this.setState({heroes}); console.log(this.state.heroes);}
+  onUpdate (heroes, clicksNumber) {
+    console.log(clicksNumber);
+    this.setState({
+      heroes: heroes,
+      clicksNumber: clicksNumber
+    });
+    console.log(this.state.heroes);
+    console.log(this.state.clicksNumber);
+  }
 }
 
 ReactDOM.render(<Main />, document.getElementById('app'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

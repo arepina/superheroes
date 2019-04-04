@@ -7,15 +7,19 @@ import heroesList from './heroesList';
 class HeroesList extends Component{
   constructor(props) {
         super(props);
-        this.state = {heroes: []};
+        this.state = {heroes: [], clicksNumber: []};
         this.addHero = this.addHero.bind(this);
   }
 
   addHero(item){
-      this.setState({
-        heroes : [item].concat(this.state.heroes)
-      });
-      this.props.onUpdate(this.state.heroes)
+      if(this.state.heroes.indexOf(item) === -1){
+        this.state.heroes = [item].concat(this.state.heroes);
+        this.state.clicksNumber = [1].concat(this.state.clicksNumber);
+      }else{
+        var heroIndex = this.state.heroes.indexOf(item);
+        this.state.clicksNumber[heroIndex] = this.state.clicksNumber[heroIndex] + 1;
+      }
+      this.props.onUpdate(this.state.heroes, this.state.clicksNumber)
    }
 
   render(){
@@ -31,7 +35,7 @@ class HeroesList extends Component{
       }
     });
     return (
-      <div className={this.props.root} style={{width:'100vw',marginLeft:'10px',marginRight:'10px',marginTop:'70px'}}>
+      <div className={this.props.root} style={{width:'100vw',marginLeft:'15px',marginRight:'15px',marginTop:'70px'}}>
         <GridList className={this.props.gridList} cols={4} cellHeight={200}>
           {heroesList.map(hero => (
             <GridListTile key={hero.image} style={{maxWidth: '100px'}} value={hero} onClick={this.addHero.bind(this, hero)}>
