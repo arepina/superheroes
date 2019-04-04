@@ -4,9 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/fontawesome-free-solid'
 
 class SearchLine extends Component {
+  constructor(props){
+    super(props)
+    this.filterHeroes = this.filterHeroes.bind(this);
+  }
 
   filterHeroes(){
-    console.log("Hello")
+    this.props.onFilter(document.getElementById('search').value)
   }
 
   render () {
@@ -14,12 +18,11 @@ class SearchLine extends Component {
       <div id="searchContainer">
          <FontAwesomeIcon icon={faSearch} style={{position: 'absolute',
            marginLeft: '100px',
-           marginTop: '17px',
+           marginTop: '20px',
            zindex: '1',
-           color: '#ffffff',
-           top: '50%'
+           color: '#ffffff'
          }}/>
-         <input type="search" id="search" placeholder="Имя героя" onChange={this.filterHeroes}/>
+         <input type="search" id="search" placeholder="Имя героя" onChange={this.filterHeroes.bind(this)}/>
       </div>
     );
   }

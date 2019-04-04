@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import heroesList from '../data/heroesList';
 
 class HeroesList extends Component{
   constructor(props) {
@@ -22,7 +21,7 @@ class HeroesList extends Component{
       this.props.onUpdate(this.state.heroes, this.state.clicksNumber)
    }
 
-  render(){
+   render(){
     const styles = theme => ({
       root: {
         display: 'flex',
@@ -37,13 +36,23 @@ class HeroesList extends Component{
     return (
       <div className={this.props.root} style={{width:'100vw',marginLeft:'15px',marginRight:'15px',marginTop:'70px'}}>
         <GridList className={this.props.gridList} cols={4} cellHeight={200}>
-          {heroesList.map(hero => (
-            <GridListTile key={hero.image} style={{maxWidth: '100px'}} value={hero} onClick={this.addHero.bind(this, hero)}>
-              <img style={{height: '100%', width: 'auto',display:'block', borderRadius: '30px'}}
+          {this.props.heroes.map(hero => (
+            <GridListTile key={hero.image} style={{maxWidth: '100px'}}
+                          value={hero} onClick={this.addHero.bind(this, hero)}>
+              <img style={{height: '100%',
+                          width: 'auto',
+                          display:'block',
+                          borderRadius: '30px'}}
               src={hero.image} alt={hero.name} />
               <GridListTileBar
                 title={hero.title}
-                subtitle={<span style={{whiteSpace: 'normal', wordBreak: 'break-all'}}>{hero.name}</span>}
+                subtitle={
+                  <span style={{
+                  whiteSpace: 'normal',
+                  wordBreak: 'break-all'}}>
+                  {hero.name}
+                  </span>
+                }
               />
             </GridListTile>
           ))}
