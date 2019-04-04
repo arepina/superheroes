@@ -17,7 +17,10 @@ class Main extends React.Component {
       <div>
         <center>
         <div style={{display: 'inline-block'}}>
-          <SelectedHeroes heroes={this.state.heroes} clicksNumber={this.state.clicksNumber}/>
+          <SelectedHeroes
+          heroes={this.state.heroes}
+          clicksNumber={this.state.clicksNumber}
+          onUpdate={this.onUpdate.bind(this)}/>
           <SearchLine style={{width:'100vw',marginBottom:'10px'}}/>
           <Heroes onUpdate={this.onUpdate.bind(this)}/>
           <GalaxyButtons/>

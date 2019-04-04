@@ -8,17 +8,14 @@ import ClearIcon from '@material-ui/icons/Clear';
 class SelectedHeroesList extends Component{
   constructor(props){
     super(props)
-    this.setState({
-      herores: props.heroes,
-      clicksNumber: props.clicksNumber
-    });
+    this.removeHero = this.removeHero.bind(this);
   }
 
   removeHero(hero){
-      var heroIndex = this.state.heroes.indexOf(hero);
-      this.state.heroes.remove(hero);
-      this.state.clicksNumber.remove(heroIndex);
-      this.props.onUpdate(this.state.heroes, this.state.clicksNumber)
+      var heroIndex = this.props.heroes.indexOf(hero);
+      this.props.heroes.splice(heroIndex, 1);
+      this.props.clicksNumber.splice(heroIndex, 1);
+      this.props.onUpdate(this.props.heroes, this.props.clicksNumber)
   }
 
   render(){

@@ -11,7 +11,7 @@ class SearchLine extends Component {
 
   render () {
     return (
-      <div class="searchContainer">
+      <div id="searchContainer">
          <FontAwesomeIcon icon={faSearch} style={{position: 'absolute',
            marginLeft: '100px',
            marginTop: '17px',

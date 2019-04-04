@@ -43,7 +43,7 @@ class HeroesList extends Component{
               src={hero.image} alt={hero.name} />
               <GridListTileBar
                 title={hero.title}
-                subtitle={<span>{hero.name}</span>}
+                subtitle={<span style={{whiteSpace: 'normal', wordBreak: 'break-all'}}>{hero.name}</span>}
               />
             </GridListTile>
           ))}
