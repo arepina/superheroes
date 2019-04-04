@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import heroesList from './heroesList';
+import heroesList from '../data/heroesList';
 
 class HeroesList extends Component{
   constructor(props) {
@@ -39,7 +39,7 @@ class HeroesList extends Component{
         <GridList className={this.props.gridList} cols={4} cellHeight={200}>
           {heroesList.map(hero => (
             <GridListTile key={hero.image} style={{maxWidth: '100px'}} value={hero} onClick={this.addHero.bind(this, hero)}>
-              <img style={{height: '100%', width: 'auto',display:'block'}}
+              <img style={{height: '100%', width: 'auto',display:'block', borderRadius: '30px'}}
               src={hero.image} alt={hero.name} />
               <GridListTileBar
                 title={hero.title}

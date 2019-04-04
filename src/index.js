@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import SelectedHeroes from './SelectedHeroes';
-import SearchLine from './SearchLine';
-import Heroes from './Heroes';
-import GalaxyButtons from './GalaxyButtons';
-import * as serviceWorker from './serviceWorker';
+import './css/index.css';
+import SelectedHeroes from './components/SelectedHeroes';
+import SearchLine from './components/SearchLine';
+import Heroes from './components/Heroes';
+import GalaxyButtons from './components/GalaxyButtons';
+import * as serviceWorker from './components/serviceWorker';
 
 class Main extends React.Component {
   constructor (props) {

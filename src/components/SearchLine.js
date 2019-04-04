@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SearchLine.css';
+import '../css/SearchLine.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/fontawesome-free-solid'
 
