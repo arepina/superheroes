@@ -5,17 +5,17 @@ class GalaxyButtons extends Component {
     super();
     this.handleClick = this.handleClick.bind(this);
     this.state = {
-        isDC: true,
-        isMarvel: false
+        isDC: false,
+        isMarvel: true
     }
   }
 
   handleClick (event) {
-      event.preventDefault();
       this.setState({
           isDC: this.state.isMarvel,
           isMarvel: this.state.isDC
       });
+      this.props.onGalaxyFilter(this.state.isMarvel)
   }
 
   render () {
@@ -26,8 +26,12 @@ class GalaxyButtons extends Component {
     return (
       <center>
         <div if="galaxy" style={{display: 'inline-block',width:'100vw',marginTop:'10px'}}>
-          <button disabled={this.state.isDC}><img border="0" id="dc" src="dc.png" alt="dc" onClick={this.handleClick} style={style}/></button>
-          <button disabled={this.state.isMarvel}><img border="0" id="marvel" src="marvel.png" alt="marvel" onClick={this.handleClick} style={style}/></button>
+          <button disabled={this.state.isDC}>
+            <img border="0" id="dc" src="dc.png" alt="dc" onClick={this.handleClick} style={style}/>
+          </button>
+          <button disabled={this.state.isMarvel}>
+            <img border="0" id="marvel" src="marvel.png" alt="marvel" onClick={this.handleClick} style={style}/>
+          </button>
         </div>
       </center>
     );

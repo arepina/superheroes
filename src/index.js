@@ -11,7 +11,45 @@ import heroesList from './data/heroesList';
 class Main extends React.Component {
   constructor (props) {
     super(props)
-    this.state = { heroes: [], clicksNumber: [], heroesToFilter: heroesList, mainHeroes: heroesList}
+    this.state = {
+      heroes: [],
+      clicksNumber: [],
+      heroesToFilter: heroesList.filter(function(hero) {return hero.galaxy === 'dc'}),
+      mainHeroes: heroesList,
+      galaxy: 'dc'
+    };
+  }
+
+  onUpdate (heroes, clicksNumber) {
+    this.setState({
+      heroes: heroes,
+      clicksNumber: clicksNumber
+    });
+  }
+
+  onGalaxyFilter(isMarvel){
+    if(isMarvel){
+      this.setState({
+        heroesToFilter: this.state.mainHeroes
+        .filter(function(hero) {return hero.galaxy === 'marvel'}),
+        galaxy : 'marvel'
+      });
+    }else{
+        this.setState({
+          heroesToFilter: this.state.mainHeroes
+          .filter(function(hero) {return hero.galaxy === 'dc'}),
+          galaxy : 'dc'
+        });
+    }
+  }
+
+  onFilter (nameFilter){
+    var galaxy = this.state.galaxy;
+    this.setState({
+      heroesToFilter: this.state.mainHeroes
+      .filter(function(hero) {return hero.name.toLowerCase().includes(nameFilter.toLowerCase())})
+      .filter(function(hero) {return hero.galaxy === galaxy})
+    });
   }
 
   render () {
@@ -29,27 +67,11 @@ class Main extends React.Component {
                       }}/>
           <Heroes onUpdate={this.onUpdate.bind(this)}
                   heroes={this.state.heroesToFilter}/>
-          <GalaxyButtons/>
+          <GalaxyButtons onGalaxyFilter={this.onGalaxyFilter.bind(this)}/>
         </div>
       </center>
       </div>
     )
-  }
-  onUpdate (heroes, clicksNumber) {
-    this.setState({
-      heroes: heroes,
-      clicksNumber: clicksNumber
-    });
-  }
-
-  onFilter (nameFilter){
-    this.setState({
-      heroesToFilter: this.state.mainHeroes.filter(function(hero) {
-                                                      return hero.name.toLowerCase().includes(nameFilter.toLowerCase())
-                                                  })
-    });
-    console.log(this.state.heroesToFilter)
-    console.log(nameFilter);
   }
 }
 
