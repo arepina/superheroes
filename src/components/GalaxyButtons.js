@@ -11,10 +11,11 @@ class GalaxyButtons extends Component {
   }
 
   handleClick (event) {
+      document.getElementById("search").value = '';
       this.setState({
           isDC: this.state.isMarvel,
           isMarvel: this.state.isDC
-      });
+      });     
       this.props.onGalaxyFilter(this.state.isMarvel)
   }
 

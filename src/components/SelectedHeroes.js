@@ -34,7 +34,7 @@ class SelectedHeroesList extends Component{
               display:'block',
               borderRadius: '30px'
             }}
-            src={hero.image} alt={hero.name} />
+            src={hero.image} alt={hero.name}/>
               <GridListTileBar subtitle={<span style={{
                 background: 'green',
                 fontSize: '20px',

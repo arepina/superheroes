@@ -11,6 +11,7 @@ import heroesList from './data/heroesList';
 class Main extends React.Component {
   constructor (props) {
     super(props)
+    window.location.hash = '/dc';
     this.state = {
       heroes: [],
       clicksNumber: [],
@@ -34,12 +35,14 @@ class Main extends React.Component {
         .filter(function(hero) {return hero.galaxy === 'marvel'}),
         galaxy : 'marvel'
       });
+      window.location.hash = '/marvel';
     }else{
         this.setState({
           heroesToFilter: this.state.mainHeroes
           .filter(function(hero) {return hero.galaxy === 'dc'}),
           galaxy : 'dc'
         });
+        window.location.hash = '/dc';
     }
   }
 
