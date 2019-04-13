@@ -1,4 +1,15 @@
-input[type=image]:disabled
+/* input[type=image]:disabled{
+
+} */
+
+.disabled
 {
+    /* background-color: #DDD;
+    color: #999; */
     opacity:0.5;
+}
+
+input{
+    width: 200px;
+    height: 150px;
 }

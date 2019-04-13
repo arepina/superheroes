@@ -12,27 +12,19 @@ class HeroesList extends Component{
 
   addHero(item){
       if(this.state.heroes.indexOf(item) === -1){
+        // eslint-disable-next-line
         this.state.heroes = [item].concat(this.state.heroes);
+        // eslint-disable-next-line
         this.state.clicksNumber = [1].concat(this.state.clicksNumber);
       }else{
         var heroIndex = this.state.heroes.indexOf(item);
+        // eslint-disable-next-line
         this.state.clicksNumber[heroIndex] = this.state.clicksNumber[heroIndex] + 1;
       }
       this.props.onUpdate(this.state.heroes, this.state.clicksNumber)
    }
 
    render(){
-    const styles = theme => ({
-      root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        overflow: 'hidden',
-      },
-      gridList: {
-        height: 350,
-      }
-    });
     return (
       <div className={this.props.root} style={{width:'100vw',marginLeft:'15px',marginRight:'15px',marginTop:'70px'}}>
         <GridList className={this.props.gridList} cols={4} cellHeight={200}>
