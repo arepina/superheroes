@@ -18,11 +18,11 @@
     "@progress/kendo-react-intl": "^2.8.0",
     "@progress/kendo-theme-material": "^2.3.2",
     "font-awesome": "^4.7.0",
-    "i": "^0.3.6",
-    "npm": "^6.9.0",
+    "i": "^0.3.7",
+    "npm": "^7.21.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
+    "react-scripts": "5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
