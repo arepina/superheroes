@@ -19,7 +19,7 @@
     "@progress/kendo-theme-material": "^2.3.2",
     "font-awesome": "^4.7.0",
     "i": "^0.3.7",
-    "npm": "^7.21.0",
+    "npm": "^11.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "5.0.0"
